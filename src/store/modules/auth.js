@@ -56,7 +56,6 @@ export const actions = {
   async fetchUser({ commit }) {
     try {
       const { data } = await axios.get('/api/user')
-
       commit(types.FETCH_USER_SUCCESS, {
         user: data
       })
@@ -72,9 +71,9 @@ export const actions = {
   async logout({ commit }) {
     try {
       await axios.post('/api/logout')
-    } catch (e) {}
-
-    commit(types.LOGOUT)
+    } catch (e) {
+      commit(types.LOGOUT)
+    }
   },
 
   async fetchOauthUrl(ctx, { provider }) {

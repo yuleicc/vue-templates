@@ -1,9 +1,6 @@
 <template>
   <section>
-    <tabbar
-      class="nav-bottom"
-      style="position: fixed;background-color:#3c3c3c; "
-    >
+    <tabbar class="nav-bottom" style="position: fixed;background-color:#3c3c3c;">
       <tabbar-item selected :link="{ name: 'home' }">
         <span slot="label">home</span>
       </tabbar-item>

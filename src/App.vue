@@ -2,7 +2,7 @@
   <div id="app">
     <Loading ref="loading" />
     <transition name="page" mode="out-in">
-      <component v-if="layout" :is="layout" />
+      <component :is="layout" v-if="layout" />
     </transition>
   </div>
 </template>
@@ -22,15 +22,18 @@ const layouts = requireContext
 
 export default {
   name: 'App',
+  components: {
+    Loading,
+    MyFooter
+  },
   data() {
     return {
       layout: null,
       defaultLayout: 'default'
     }
   },
-  components: {
-    Loading,
-    MyFooter
+  mounted() {
+    this.$loading = this.$refs.loading
   },
   methods: {
     /**
@@ -44,9 +47,6 @@ export default {
       }
       this.layout = layouts[layout]
     }
-  },
-  mounted() {
-    this.$loading = this.$refs.loading
   }
 }
 </script>

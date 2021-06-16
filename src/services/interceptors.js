@@ -34,12 +34,10 @@ export default http => {
 
       switch (error.response.status) {
         case 422: {
-          let data = error.response.data.errors
+          const data = error.response.data.errors
           let content = ''
-
           Object.keys(data).map(function(key) {
-            let value = data[key]
-
+            const value = data[key]
             content = value[0]
           })
 
